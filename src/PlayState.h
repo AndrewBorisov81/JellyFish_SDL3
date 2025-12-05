@@ -21,7 +21,7 @@ class PlayState : public GameState
   static const std::string s_playID;
 
 public:
-  virtual void handleEvents();
+  virtual void handleEvents(const SDL_Event& e);
   virtual void update();
   virtual void render();
 

@@ -41,11 +41,11 @@ bool PlayState::onExit()
   return true;
 }
 
-void PlayState::handleEvents()
+void PlayState::handleEvents(const SDL_Event& e)
 {
-    SDL_Event event;
+    //SDL_Event event;
 
-    while (SDL_PollEvent(&event))
+    /*while (SDL_PollEvent(&event))
     {
         switch (event.type)
         {
@@ -65,7 +65,26 @@ void PlayState::handleEvents()
                 }
                 break;
         }
-    }
+    }*/
+
+     switch (e.type)
+        {
+            case SDL_EVENT_MOUSE_BUTTON_DOWN:
+                if (e.button.button == SDL_BUTTON_LEFT)
+                    m_leftMouseDown = true;
+                    m_mouseClickDone = false; // optional
+                    printf("Left button pressed\n"); // debug
+                break;
+
+            case SDL_EVENT_MOUSE_BUTTON_UP:
+                if (e.button.button == SDL_BUTTON_LEFT)
+                {
+                    m_leftMouseDown = false;
+                    m_mouseClickDone = false;
+                     printf("Left button released\n"); // debug
+                }
+                break;
+        }
 
     int buttons = SDL_GetMouseState(&m_mouseX, &m_mouseY);
 
@@ -78,8 +97,6 @@ void PlayState::handleEvents()
         }
     }
 }
-
-
 
 void PlayState::update()
 {

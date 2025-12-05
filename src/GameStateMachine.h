@@ -18,7 +18,7 @@ public:
     //void pushState(GameState* state);
     //void changeState(GameState* state);
 
-    void handleEvents();
+    void handleEvents(const SDL_Event& e);
     void update();
     void render();
 

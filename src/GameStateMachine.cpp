@@ -1,6 +1,5 @@
 
 #include "GameStateMachine.h"
-#include "GameState.h"
 
 void GameStateMachine::pushState(std::unique_ptr<GameState> state)
 {
@@ -44,11 +43,11 @@ void GameStateMachine::changeState(std::unique_ptr<GameState> state)
   m_gameStates.back()->onEnter();
 }
 
-void GameStateMachine::handleEvents()
+void GameStateMachine::handleEvents(const SDL_Event& e)
 {
   if (!m_gameStates.empty())
   {
-    m_gameStates.back()->handleEvents();
+    m_gameStates.back()->handleEvents(e);
   }
 }
 

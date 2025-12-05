@@ -1,5 +1,7 @@
 #include "Game.h"
 
+#include <SDL3/SDL_events.h>
+
 Game *game = nullptr;
 
 const int FPS = 60;
@@ -12,6 +14,8 @@ int main(int argc, char *argv[])
   Uint32 frameStart;
   int frameTime;
 
+  SDL_Event e;
+
   game = TheGame::Instance();
   game->init("GameWindow", 1024, 768, false);
 
@@ -19,7 +23,11 @@ int main(int argc, char *argv[])
   {
     frameStart = SDL_GetTicks();
 
-    game->handleEvents();
+      // Poll events
+    while (SDL_PollEvent(&e))
+    {
+        game->handleEvents(e);   // Pass the event to the game/state
+    }
     game->update();
     game->render();
 
@@ -34,3 +42,4 @@ int main(int argc, char *argv[])
 
   return 0;
 }
+

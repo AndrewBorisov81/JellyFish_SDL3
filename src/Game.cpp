@@ -67,15 +67,12 @@ if (IMG_INIT_PNG != 0) {
     return true;
 }
 
-void Game::handleEvents()
+void Game::handleEvents(const SDL_Event& e)
 {
-    SDL_Event e;
-    while (SDL_PollEvent(&e)) {
-        if (e.type == SDL_EVENT_QUIT) m_isRunning = false;
-    }
+    //if (e.type == SDL_EVENT_QUIT) m_isRunning = false;
 
     if (m_stateMachine)
-        m_stateMachine->handleEvents();
+        m_stateMachine->handleEvents(e);
 }
 
 void Game::update()

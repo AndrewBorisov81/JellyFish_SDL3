@@ -2,13 +2,14 @@
 #pragma once
 
 #include <string>
+#include <SDL3/SDL.h>
 
 class GameState
 {
 public:
     virtual ~GameState() = default;
 
-    virtual void handleEvents() = 0;
+    virtual void handleEvents(const SDL_Event& e) = 0;
     virtual void update() = 0;
     virtual void render() = 0;
 

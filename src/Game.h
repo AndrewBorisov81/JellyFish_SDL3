@@ -44,7 +44,7 @@ public:
     bool init(const char* title, int width, int height, bool fullscreen);
 
     // Game loop
-    void handleEvents();
+    void handleEvents(const SDL_Event& e);
     void update();
     void render();
 
@@ -61,6 +61,3 @@ public:
 };
 
 typedef Game TheGame;
-
-
-
