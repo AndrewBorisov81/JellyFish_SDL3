@@ -22,5 +22,5 @@ public:
     void update();
     void render();
 
-    //GameState* getCurrentState();
+    const std::vector<std::unique_ptr<GameState>>& getStates() const ;
 };

@@ -67,3 +67,8 @@ void GameStateMachine::render()
     m_gameStates.back()->render();
   }
 }
+
+const std::vector<std::unique_ptr<GameState>>& GameStateMachine::getStates() const
+{
+    return m_gameStates;
+}
