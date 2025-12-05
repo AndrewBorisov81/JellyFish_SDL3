@@ -2,7 +2,7 @@
 #include "GameStateMachine.h"
 #include "PlayState.h"
 #include "Texture.h"
-#include "GameObject.h"  // Needed for reportLeaks
+#include "GameObject.h"
 #include <iostream>
 
 // Initialize singleton

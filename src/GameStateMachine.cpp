@@ -1,10 +1,9 @@
 
 #include "GameStateMachine.h"
 
-void GameStateMachine::pushState(std::unique_ptr<GameState> state)
+void GameStateMachine::pushState(std::unique_ptr<IGameState> state)
 {
   m_gameStates.push_back(std::move(state));
-  //m_gameStates.push_back(state);
 
   m_gameStates.back()->onEnter();
 }
@@ -21,15 +20,15 @@ void GameStateMachine::popState()
   }
 }
 
-void GameStateMachine::changeState(std::unique_ptr<GameState> state) 
+void GameStateMachine::changeState(std::unique_ptr<IGameState> state) 
 {
   if (!m_gameStates.empty())
   {
     //if it already exits don't do anything
-    /*if (m_gameStates.back()->getStateID() == state->getStateID())
+    if (m_gameStates.back()->getStateID() == state->getStateID())
     {
         return;	//do nothing
-    }*/
+    }
 
     if (m_gameStates.back()->onExit())
     {
@@ -67,7 +66,7 @@ void GameStateMachine::render()
   }
 }
 
-const std::vector<std::unique_ptr<GameState>>& GameStateMachine::getStates() const
+const std::vector<std::unique_ptr<IGameState>>& GameStateMachine::getStates() const
 {
     return m_gameStates;
 }

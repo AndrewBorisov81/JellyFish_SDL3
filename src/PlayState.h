@@ -5,7 +5,7 @@
 #include <vector>
 #include <string>
 
-#include "GameState.h"
+#include "IGameState.h"
 #include "Size.h"
 
 //#include "SDLGameObject.h"
@@ -16,7 +16,7 @@ class Mover;
 class Vector2D;
 class Point;
 
-class PlayState : public GameState
+class PlayState : public IGameState
 {
   static const std::string s_playID;
 

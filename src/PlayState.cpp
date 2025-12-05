@@ -43,37 +43,12 @@ bool PlayState::onExit()
 
 void PlayState::handleEvents(const SDL_Event& e)
 {
-    //SDL_Event event;
-
-    /*while (SDL_PollEvent(&event))
-    {
-        switch (event.type)
-        {
-            case SDL_EVENT_MOUSE_BUTTON_DOWN:
-                if (event.button.button == SDL_BUTTON_LEFT)
-                    m_leftMouseDown = true;
-                    m_mouseClickDone = false; // optional
-                    printf("Left button pressed\n"); // debug
-                break;
-
-            case SDL_EVENT_MOUSE_BUTTON_UP:
-                if (event.button.button == SDL_BUTTON_LEFT)
-                {
-                    m_leftMouseDown = false;
-                    m_mouseClickDone = false;
-                     printf("Left button released\n"); // debug
-                }
-                break;
-        }
-    }*/
-
      switch (e.type)
         {
             case SDL_EVENT_MOUSE_BUTTON_DOWN:
                 if (e.button.button == SDL_BUTTON_LEFT)
                     m_leftMouseDown = true;
                     m_mouseClickDone = false; // optional
-                    printf("Left button pressed\n"); // debug
                 break;
 
             case SDL_EVENT_MOUSE_BUTTON_UP:
@@ -81,7 +56,6 @@ void PlayState::handleEvents(const SDL_Event& e)
                 {
                     m_leftMouseDown = false;
                     m_mouseClickDone = false;
-                     printf("Left button released\n"); // debug
                 }
                 break;
         }

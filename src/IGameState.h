@@ -4,10 +4,10 @@
 #include <string>
 #include <SDL3/SDL.h>
 
-class GameState
+class IGameState
 {
 public:
-    virtual ~GameState() = default;
+    virtual ~IGameState() = default;
 
     virtual void handleEvents(const SDL_Event& e) = 0;
     virtual void update() = 0;
