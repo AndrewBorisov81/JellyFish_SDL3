@@ -1,0 +1,15 @@
+{
+"version": "0.2.0",
+"configurations": [
+{
+"name": "Debug JellyFish",
+"type": "cppdbg",
+"request": "launch",
+"program": "${workspaceFolder}/build/JellyFish",
+"args": [],
+"cwd": "${workspaceFolder}",
+"preLaunchTask": "CMake Build",
+"stopAtEntry": false
+}
+]
+}
