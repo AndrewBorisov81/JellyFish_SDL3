@@ -61,7 +61,6 @@ if (IMG_INIT_PNG != 0) {
     // Initialize GameStateMachine with PlayState
     m_stateMachine = std::make_unique<GameStateMachine>();
     m_stateMachine->pushState(std::make_unique<PlayState>());
-    //m_stateMachine->pushState(new PlayState());
 
     m_isRunning = true;
     return true;
@@ -69,7 +68,7 @@ if (IMG_INIT_PNG != 0) {
 
 void Game::handleEvents(const SDL_Event& e)
 {
-    //if (e.type == SDL_EVENT_QUIT) m_isRunning = false;
+    if (e.type == SDL_EVENT_QUIT) m_isRunning = false;
 
     if (m_stateMachine)
         m_stateMachine->handleEvents(e);
